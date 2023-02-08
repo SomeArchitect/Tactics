@@ -1,0 +1,322 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>A Basic HTML5 Template</title>
+	<meta name="description" content="A simple HTML5 Template for new projects.">
+	<meta name="author" content="SitePoint">
+
+	<meta property="og:title" content="A Basic HTML5 Template">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+	<meta property="og:description" content="A simple HTML5 Template for new projects.">
+	<meta property="og:image" content="image.png">
+
+	<link rel="icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<link rel="stylesheet" href="css/styles.css?v=1.0">
+
+	<style type="text/css">
+	body {
+		background-color : var(--primary);
+		text-align       : center;
+		margin           : 20px;
+		}
+	a {
+		display          : inline-block;
+		margin-bottom    : 5px;
+		padding          : 5px 15px;
+		/*border-radius  : 5px;*/
+		color            : #f1f3f5; /*f8f9fa*/
+		background-color : #222; /*495057*/
+		text-decoration  : none;
+		}
+	input {
+		color            : #f1f3f5;
+		background-color : #222;
+		/*width          : 25px;*/
+  		height           : 22px;
+  		vertical-align   : top;
+  		text-align       : right; 
+		}
+	</style>
+
+</head>
+
+<body>
+	<a href="#" onclick="PrevFunction()"><</a>
+	<input type="number" id="number" name="number" min="1" max="1000" onkeypress="EnterFunction(event)">
+	<a href="#" onclick="NextFunction()">></a>
+	<a href="#" onclick="RandFunction()">Random</a>
+	<br>
+	<img id="exercise" src="fork (1).png" alt="">
+	<br>
+	<a  href="#" onclick="AnswerFunction()">Show Answer</a>
+	<br>
+	<img id="answer" src="">
+
+	<script>
+	var numero = 1;
+	var boards = [
+        "forks (1).png",
+        "forks (2).png",
+        "forks (3).png",
+        "forks (4).png",
+        "forks (5).png",
+        "forks (6).png",
+        "forks (7).png",
+        "forks (8).png",
+        "forks (9).png",
+        "forks (10).png",
+        "forks (11).png",
+        "forks (12).png",
+        "forks (13).png",
+        "forks (14).png",
+        "forks (15).png",
+        "forks (16).png",
+        "forks (17).png",
+        "forks (18).png",
+        "forks (19).png",
+        "forks (20).png",
+        "forks (21).png",
+        "forks (22).png",
+        "forks (23).png",
+        "forks (24).png",
+        "forks (25).png",
+        "forks (26).png",
+        "forks (27).png",
+        "forks (28).png",
+        "forks (29).png",
+        "forks (30).png",
+        "forks (31).png",
+        "forks (32).png",
+        "forks (33).png",
+        "forks (34).png",
+        "forks (35).png",
+        "forks (36).png",
+        "forks (37).png",
+        "forks (38).png",
+        "forks (39).png",
+        "forks (40).png",
+        "forks (41).png",
+        "forks (42).png",
+        "forks (43).png",
+        "forks (44).png",
+        "forks (45).png",
+        "forks (46).png",
+        "forks (47).png",
+        "forks (48).png",
+        "forks (49).png",
+        "forks (50).png",
+        "pins (1).png",
+        "pins (2).png",
+        "pins (3).png",
+        "pins (4).png",
+        "pins (5).png",
+        "pins (6).png",
+        "pins (7).png",
+        "pins (8).png",
+        "pins (9).png",
+        "pins (10).png",
+        "pins (11).png",
+        "pins (12).png",
+        "pins (13).png",
+        "pins (14).png",
+        "pins (15).png",
+        "pins (16).png",
+        "pins (17).png",
+        "pins (18).png",
+        "pins (19).png",
+        "pins (20).png",
+        "pins (21).png",
+        "pins (22).png",
+        "pins (23).png",
+        "pins (24).png",
+        "pins (25).png",
+        "pins (26).png",
+        "pins (27).png",
+        "pins (28).png",
+        "pins (29).png",
+        "pins (30).png",
+        "pins (31).png",
+        "pins (32).png",
+        "pins (33).png",
+        "pins (34).png",
+        "pins (35).png",
+        "pins (36).png",
+        "pins (37).png",
+        "pins (38).png",
+        "pins (39).png",
+        "pins (40).png",
+        "pins (41).png",
+        "pins (42).png",
+        "pins (43).png",
+        "pins (44).png",
+        "pins (45).png",
+        "pins (46).png",
+        "pins (47).png",
+        "pins (48).png",
+        "pins (49).png",
+        "pins (50).png",
+		]
+	var answers = [
+        "forksanswers (1).png",
+        "forksanswers (2).png",
+        "forksanswers (3).png",
+        "forksanswers (4).png",
+        "forksanswers (5).png",
+        "forksanswers (6).png",
+        "forksanswers (7).png",
+        "forksanswers (8).png",
+        "forksanswers (9).png",
+        "forksanswers (10).png",
+        "forksanswers (11).png",
+        "forksanswers (12).png",
+        "forksanswers (13).png",
+        "forksanswers (14).png",
+        "forksanswers (15).png",
+        "forksanswers (16).png",
+        "forksanswers (17).png",
+        "forksanswers (18).png",
+        "forksanswers (19).png",
+        "forksanswers (20).png",
+        "forksanswers (21).png",
+        "forksanswers (22).png",
+        "forksanswers (23).png",
+        "forksanswers (24).png",
+        "forksanswers (25).png",
+        "forksanswers (26).png",
+        "forksanswers (27).png",
+        "forksanswers (28).png",
+        "forksanswers (29).png",
+        "forksanswers (30).png",
+        "forksanswers (31).png",
+        "forksanswers (32).png",
+        "forksanswers (33).png",
+        "forksanswers (34).png",
+        "forksanswers (35).png",
+        "forksanswers (36).png",
+        "forksanswers (37).png",
+        "forksanswers (38).png",
+        "forksanswers (39).png",
+        "forksanswers (40).png",
+        "forksanswers (41).png",
+        "forksanswers (42).png",
+        "forksanswers (43).png",
+        "forksanswers (44).png",
+        "forksanswers (45).png",
+        "forksanswers (46).png",
+        "forksanswers (47).png",
+        "forksanswers (48).png",
+        "forksanswers (49).png",
+        "forksanswers (50).png",
+        "pinsanswers (1).png",
+        "pinsanswers (2).png",
+        "pinsanswers (3).png",
+        "pinsanswers (4).png",
+        "pinsanswers (5).png",
+        "pinsanswers (6).png",
+        "pinsanswers (7).png",
+        "pinsanswers (8).png",
+        "pinsanswers (9).png",
+        "pinsanswers (10).png",
+        "pinsanswers (11).png",
+        "pinsanswers (12).png",
+        "pinsanswers (13).png",
+        "pinsanswers (14).png",
+        "pinsanswers (15).png",
+        "pinsanswers (16).png",
+        "pinsanswers (17).png",
+        "pinsanswers (18).png",
+        "pinsanswers (19).png",
+        "pinsanswers (20).png",
+        "pinsanswers (21).png",
+        "pinsanswers (22).png",
+        "pinsanswers (23).png",
+        "pinsanswers (24).png",
+        "pinsanswers (25).png",
+        "pinsanswers (26).png",
+        "pinsanswers (27).png",
+        "pinsanswers (28).png",
+        "pinsanswers (29).png",
+        "pinsanswers (30).png",
+        "pinsanswers (31).png",
+        "pinsanswers (32).png",
+        "pinsanswers (33).png",
+        "pinsanswers (34).png",
+        "pinsanswers (35).png",
+        "pinsanswers (36).png",
+        "pinsanswers (37).png",
+        "pinsanswers (38).png",
+        "pinsanswers (39).png",
+        "pinsanswers (40).png",
+        "pinsanswers (41).png",
+        "pinsanswers (42).png",
+        "pinsanswers (43).png",
+        "pinsanswers (44).png",
+        "pinsanswers (45).png",
+        "pinsanswers (46).png",
+        "pinsanswers (47).png",
+        "pinsanswers (48).png",
+        "pinsanswers (49).png",
+        "pinsanswers (50).png",
+		]
+	document.getElementById("number").value = numero;
+	document.getElementById("number").max = boards.length;
+	function PrevFunction()
+		{
+		if (numero > 1)
+			{
+			numero--;
+			document.getElementById("number").value = numero;
+			document.getElementById("exercise").src = boards[numero-1];
+			document.getElementById("answer").src = "";
+			}
+		}
+	function NextFunction()
+		{
+		if (numero < boards.length)
+			{
+			numero++;
+			document.getElementById("number").value = numero;
+			document.getElementById("exercise").src = boards[numero-1];
+			document.getElementById("answer").src = "";
+			}
+		}
+	function RandFunction()
+		{
+		numero = Math.floor(Math.random() * (boards.length - 1 + 1) + 1)
+		document.getElementById("number").value = numero;
+		document.getElementById("exercise").src = boards[numero-1];
+		document.getElementById("answer").src = "";
+		}
+	
+	function AnswerFunction()
+		{
+		document.getElementById("answer").src = answers[numero-1];
+		}
+	function EnterFunction(event)
+		{
+		if (event.which == 13)
+			{
+			numero = document.getElementById("number").value;
+			if (numero > 0 && numero <= boards.length)
+				{
+				document.getElementById("exercise").src = boards[numero-1];
+				document.getElementById("answer").src = "";
+				}
+			}
+		}
+	document.body.onkeydown = function(e)
+		{
+    	if (event.which == 39) {NextFunction();}
+    	else if (event.which == 37) {PrevFunction();}
+		}
+	</script>
+</body>
+</html>
